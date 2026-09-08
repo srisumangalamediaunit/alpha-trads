@@ -9,29 +9,15 @@ import {
     signOut 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-// Firebase Configuration (මෙතැනට ඔබේ Firebase Config එක Paste කරන්න)
+// ඔබගේ Firebase Configuration එක
 const firebaseConfig = {
-    // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAeav3-bNyid6x97sgT48CPI3eJTbtTW6o",
-  authDomain: "alpha-edge-traders.firebaseapp.com",
-  projectId: "alpha-edge-traders",
-  storageBucket: "alpha-edge-traders.firebasestorage.app",
-  messagingSenderId: "750669928222",
-  appId: "1:750669928222:web:51e64d7b1bb22248b05b0f",
-  measurementId: "G-NC7E59BQ0Y"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+    apiKey: "AIzaSyAeav3-bNyid6x97sgT48CPI3eJTbtTW6o",
+    authDomain: "alpha-edge-traders.firebaseapp.com",
+    projectId: "alpha-edge-traders",
+    storageBucket: "alpha-edge-traders.firebasestorage.app",
+    messagingSenderId: "750669928222",
+    appId: "1:750669928222:web:51e64d7b1bb22248b05b0f",
+    measurementId: "G-NC7E59BQ0Y"
 };
 
 // Initialize Firebase
