@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HD Video Portal - Secure Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Firebase SDK Modules -->
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+
+    <!-- 1. AUTHENTICATION SECTION (Login/Signup Box) -->
+    <div id="authContainer" class="auth-box">
+        <h2 id="authTitle"><i class="fas fa-lock"></i> Account Sign In</h2>
+        
+        <form id="authForm">
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="password" id="password" placeholder="Password (Min 6 chars)" required>
+            <button type="submit" id="submitBtn" class="btn primary-btn">Sign In</button>
+        </form>
+
+        <div class="divider">OR</div>
+
+        <!-- Google Login Button -->
+        <button id="googleBtn" class="btn google-btn">
+            <i class="fab fa-google"></i> Continue with Google
+        </button>
+
+        <p class="toggle-text">
+            <span id="toggleMsg">Don't have an account?</span> 
+            <a href="#" id="toggleAuth">Sign Up</a>
+        </p>
+    </div>
+
+
+    <!-- 2. MAIN WEBSITE SECTION (Sign-in වූ පසුව පමණක් පෙන්නුම් කරයි) -->
+    <div id="mainWebsite" class="hidden">
+        <header class="navbar">
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                <span>HD Media Hub</span>
+            </div>
+            <div class="user-profile">
+                <span id="userEmail"></span>
+                <button id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </header>
+
+        <main class="container">
+            <!-- Video Player Area -->
+            <section class="main-player-section">
+                <div class="video-container">
+                    <video id="mainVideo" controls>
+                        <source id="videoSource" src="videos/video1.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <h2 id="videoTitle" class="video-title">Video 01: Getting Started</h2>
+                <p id="videoDesc" class="video-desc">This video is only visible to logged-in users.</p>
+            </section>
+
+            <!-- Video Slots / Playlist -->
+            <section class="playlist-section">
+                <h3><i class="fas fa-list-ul"></i> Select Video Slot</h3>
+                <div class="video-grid">
+                    <div class="video-card active" onclick="playVideo('videos/video1.mp4', 'Video 01: Getting Started', 'Description for video 01', this)">
+                        <div class="thumbnail-slot"><i class="fas fa-play"></i><span>SLOT 01</span></div>
+                        <div class="card-info"><h4>Video 01: Getting Started</h4><p>MP4 Video</p></div>
+                    </div>
+                    <div class="video-card" onclick="playVideo('videos/video2.mp4', 'Video 02: Advanced Features', 'Description for video 02', this)">
+                        <div class="thumbnail-slot"><i class="fas fa-play"></i><span>SLOT 02</span></div>
+                        <div class="card-info"><h4>Video 02: Advanced Features</h4><p>MP4 Video</p></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
