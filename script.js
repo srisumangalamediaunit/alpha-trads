@@ -31,51 +31,46 @@ const mainWebsite = document.getElementById('mainWebsite');
 const authForm = document.getElementById('authForm');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
-const submitBtn = document.getElementById('submitBtn');
-const toggleAuth = document.getElementById('toggleAuth');
-const authTitle = document.getElementById('authTitle');
-const toggleMsg = document.getElementById('toggleMsg');
+const signUpBtn = document.getElementById('signUpBtn');
 const googleBtn = document.getElementById('googleBtn');
 const logoutBtn = document.getElementById('logoutBtn');
 const userEmail = document.getElementById('userEmail');
 
-let isSignUp = false;
-
-// Mode Toggle (Sign In <-> Sign Up)
-toggleAuth.addEventListener('click', (e) => {
-    e.preventDefault();
-    isSignUp = !isSignUp;
-    authTitle.innerHTML = isSignUp ? '<i class="fas fa-user-plus"></i> Create Account' : '<i class="fas fa-lock"></i> Account Sign In';
-    submitBtn.textContent = isSignUp ? 'Sign Up' : 'Sign In';
-    toggleMsg.textContent = isSignUp ? 'Already have an account?' : "Don't have an account?";
-    toggleAuth.textContent = isSignUp ? 'Sign In' : 'Sign Up';
-});
-
-// Email & Password Auth
+// 1. Sign In (Form Submit එකෙන්)
 authForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = emailInput.value;
     const password = passwordInput.value;
 
-    if (isSignUp) {
-        createUserWithEmailAndPassword(auth, email, password)
-            .catch(error => alert(error.message));
-    } else {
-        signInWithEmailAndPassword(auth, email, password)
-            .catch(error => alert(error.message));
-    }
+    signInWithEmailAndPassword(auth, email, password)
+        .catch(error => alert("Login Error: " + error.message));
 });
 
-// Google Authentication
+// 2. Sign Up (කොළ පාට Sign Up Button එකෙන්)
+signUpBtn.addEventListener('click', () => {
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    if (!email || !password) {
+        alert("කරුණාකර Email එක සහ Password එක ඇතුළත් කරන්න.");
+        return;
+    }
+
+    createUserWithEmailAndPassword(auth, email, password)
+        .then(() => alert("Account එක සාර්ථකව සෑදුවා! දැන් ඔබට වීඩියෝ නැරඹිය හැක."))
+        .catch(error => alert("Sign Up Error: " + error.message));
+});
+
+// 3. Google Authentication
 googleBtn.addEventListener('click', () => {
     signInWithPopup(auth, googleProvider)
-        .catch(error => alert(error.message));
+        .catch(error => alert("Google Sign-In Error: " + error.message));
 });
 
-// Logout
+// 4. Logout
 logoutBtn.addEventListener('click', () => signOut(auth));
 
-// Auth State Monitor (User Login වී ඇත්දැයි පරීක්ෂා කිරීම)
+// 5. Auth State Monitor
 onAuthStateChanged(auth, (user) => {
     if (user) {
         authContainer.classList.add('hidden');
