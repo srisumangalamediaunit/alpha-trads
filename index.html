@@ -12,20 +12,20 @@
 </head>
 <body>
 
-    <!-- 1. AUTHENTICATION SECTION (Login/Signup Box) -->
+    <!-- AUTHENTICATION BOX -->
     <div id="authContainer" class="auth-box">
-        <h2 id="authTitle"><i class="fas fa-lock"></i> Account Sign In</h2>
+        <h2><i class="fas fa-user-lock"></i> Account Access</h2>
         
-      <form id="authForm">
-    <input type="email" id="email" placeholder="Email Address" required>
-    <input type="password" id="password" placeholder="Password (Min 6 chars)" required>
-    
-    <!-- Sign In සහ Sign Up සඳහා වෙන වෙනම Buttons 2ක් -->
-    <div style="display: flex; gap: 10px; margin-top: 10px;">
-        <button type="submit" id="submitBtn" class="btn primary-btn" style="flex: 1;">Sign In</button>
-        <button type="button" id="signUpBtn" class="btn primary-btn" style="flex: 1; background: #10b981;">Sign Up</button>
-    </div>
-</form>
+        <form id="authForm">
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="password" id="password" placeholder="Password (Min 6 chars)" required>
+            
+            <!-- වෙන වෙනම පැහැදිලිව පෙනෙන Buttons 2ක් -->
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button type="submit" id="submitBtn" class="btn primary-btn" style="flex: 1;">Sign In</button>
+                <button type="button" id="signUpBtn" class="btn primary-btn" style="flex: 1; background: #10b981; color: white;">Sign Up</button>
+            </div>
+        </form>
 
         <div class="divider">OR</div>
 
@@ -33,15 +33,10 @@
         <button id="googleBtn" class="btn google-btn">
             <i class="fab fa-google"></i> Continue with Google
         </button>
-
-        <p class="toggle-text">
-            <span id="toggleMsg">Don't have an account?</span> 
-            <a href="#" id="toggleAuth">Sign Up</a>
-        </p>
     </div>
 
 
-    <!-- 2. MAIN WEBSITE SECTION (Sign-in වූ පසුව පමණක් පෙන්නුම් කරයි) -->
+    <!-- MAIN WEBSITE (Sign In වූ පසු පෙනෙන කොටස) -->
     <div id="mainWebsite" class="hidden">
         <header class="navbar">
             <div class="logo">
@@ -55,7 +50,7 @@
         </header>
 
         <main class="container">
-            <!-- Video Player Area -->
+            <!-- Main Video Player -->
             <section class="main-player-section">
                 <div class="video-container">
                     <video id="mainVideo" controls>
