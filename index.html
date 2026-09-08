@@ -16,11 +16,16 @@
     <div id="authContainer" class="auth-box">
         <h2 id="authTitle"><i class="fas fa-lock"></i> Account Sign In</h2>
         
-        <form id="authForm">
-            <input type="email" id="email" placeholder="Email Address" required>
-            <input type="password" id="password" placeholder="Password (Min 6 chars)" required>
-            <button type="submit" id="submitBtn" class="btn primary-btn">Sign In</button>
-        </form>
+      <form id="authForm">
+    <input type="email" id="email" placeholder="Email Address" required>
+    <input type="password" id="password" placeholder="Password (Min 6 chars)" required>
+    
+    <!-- Sign In සහ Sign Up සඳහා වෙන වෙනම Buttons 2ක් -->
+    <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button type="submit" id="submitBtn" class="btn primary-btn" style="flex: 1;">Sign In</button>
+        <button type="button" id="signUpBtn" class="btn primary-btn" style="flex: 1; background: #10b981;">Sign Up</button>
+    </div>
+</form>
 
         <div class="divider">OR</div>
 
