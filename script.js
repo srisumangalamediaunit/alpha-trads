@@ -9,7 +9,7 @@ import {
     signOut 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-// ඔබගේ Firebase Configuration එක
+// Firebase Configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAeav3-bNyid6x97sgT48CPI3eJTbtTW6o",
     authDomain: "alpha-edge-traders.firebaseapp.com",
@@ -25,7 +25,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-// UI Elements
+// Elements
 const authContainer = document.getElementById('authContainer');
 const mainWebsite = document.getElementById('mainWebsite');
 const authForm = document.getElementById('authForm');
@@ -36,32 +36,32 @@ const googleBtn = document.getElementById('googleBtn');
 const logoutBtn = document.getElementById('logoutBtn');
 const userEmail = document.getElementById('userEmail');
 
-// 1. Sign In (Form Submit එකෙන්)
+// 1. Sign In Logic (Sign In Button)
 authForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = emailInput.value;
     const password = passwordInput.value;
 
     signInWithEmailAndPassword(auth, email, password)
-        .catch(error => alert("Login Error: " + error.message));
+        .catch(error => alert("Sign In Error: " + error.message));
 });
 
-// 2. Sign Up (කොළ පාට Sign Up Button එකෙන්)
+// 2. Sign Up Logic (Green Sign Up Button)
 signUpBtn.addEventListener('click', () => {
     const email = emailInput.value;
     const password = passwordInput.value;
 
     if (!email || !password) {
-        alert("කරුණාකර Email එක සහ Password එක ඇතුළත් කරන්න.");
+        alert("කරුණාකර Email එක සහ Password එක ලබාදෙන්න.");
         return;
     }
 
     createUserWithEmailAndPassword(auth, email, password)
-        .then(() => alert("Account එක සාර්ථකව සෑදුවා! දැන් ඔබට වීඩියෝ නැරඹිය හැක."))
+        .then(() => alert("Account එක සාර්ථකව සෑදුවා!"))
         .catch(error => alert("Sign Up Error: " + error.message));
 });
 
-// 3. Google Authentication
+// 3. Google Login
 googleBtn.addEventListener('click', () => {
     signInWithPopup(auth, googleProvider)
         .catch(error => alert("Google Sign-In Error: " + error.message));
@@ -70,7 +70,7 @@ googleBtn.addEventListener('click', () => {
 // 4. Logout
 logoutBtn.addEventListener('click', () => signOut(auth));
 
-// 5. Auth State Monitor
+// 5. Auth State Check
 onAuthStateChanged(auth, (user) => {
     if (user) {
         authContainer.classList.add('hidden');
